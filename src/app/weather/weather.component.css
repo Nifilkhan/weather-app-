@@ -1,0 +1,109 @@
+.container{
+    width: 100%;
+    height: 100vh;
+}
+.text-center{
+    font-size: 35px;
+    font-weight: 700;
+    color: black;
+}
+.weather-card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    margin-top: 140px;
+    gap: 25px;
+}
+.weather-card .city-name {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000;
+}
+.weather-card .temp {
+    font-size: 50px;
+    font-weight: 400;
+    color: #000;
+}
+.weather-card .weather-description {
+    text-transform: capitalize;
+    font-size: 24px;
+    color: #000;
+}
+.humidity {
+    font-size: 20px;
+    font-weight: 400;
+}
+.wind {
+    font-weight: 400;
+}
+.weather-card .humidity, .weather-card .wind {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #000;
+}
+.input-group {
+    max-width: 100% !important;
+    gap: 10px;
+    justify-content: center;
+}
+
+.input-group input {
+    max-width: 300px !important;
+    max-height: 60px;
+    border-radius: 10px !important;
+}
+
+.input-group button {
+    border-radius: 10px !important;
+}
+
+.weather-icon {
+    font-size: 80px;
+}
+.weather-icon img { 
+    width: 550px;
+   height: 100px;
+   object-fit: cover;
+}
+
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  position: absolute;
+  /* top: 200px; */
+  top: calc(50%);
+  left: calc(50%);
+  /* left: 250px; */
+  animation: spinner-plncf9 3s infinite;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  border: 9px solid;
+  border-radius: 50%;
+  border-color: #474bff #474bff #0000 #0000;
+  mix-blend-mode: darken;
+  animation: spinner-plncf9 1s infinite linear;
+}
+
+.spinner::after {
+  border-color: #0000 #0000 #dbdcef #dbdcef;
+  animation-direction: reverse;
+}
+
+@keyframes spinner-plncf9 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 575px) {
+    .weather-card {
+      margin-top: 10px;
+    }
+  }
