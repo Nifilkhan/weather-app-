@@ -1,27 +1,51 @@
-# WeatherAppTest
+<h1 align="center" id="title">Weather App</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+<p id="description">A weather application built with Angular that allows users to search for cities and view current weather conditions. This project provides a user-friendly interface to interact with weather data and refresh information as needed.</p>
 
-## Development server
+  
+  
+<h2>🧐 Features</h2>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Here're some of the project's best features:
 
-## Code scaffolding
+*   Current Weather: View the current weather conditions for any city.
+*   Responsive Design: The app is fully responsive making it easy to use on both desktop and mobile devices.
+*   Search Functionality: Search for weather data by city name.
+*   Error Handling: Informative error messages if the city is not found or if there's an issue with fetching data.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h2>🛠️ Installation Steps:</h2>
 
-## Build
+<p>1. Clone the Repository</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+git clone https://github.com/yourusername/weatherapptest.git
+```
 
-## Running unit tests
+<p>2. Navigate to the Project Directory</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+cd weatherapptest
+```
 
-## Running end-to-end tests
+<p>3. Install Dependencies</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+npm install
+```
 
-## Further help
+<p>4. Run the development server</p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
+ng serve
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Frontend: Angular TypeScript HTML CSS
+*   Backend: Open Weather Api
+*   Version Control: Git GitHub
+*   Styling: Bootstrap Custom CSS
