@@ -17,7 +17,10 @@ export class WeatherDisplayComponentComponent {
   refreshWeather() {
     this.refresh.emit();
   }
-
+  
+  /***
+   * Round the temperature to the nearest integer
+   */
   getRoundedTemp(temp: number): number {
     return Math.round(temp);
   }

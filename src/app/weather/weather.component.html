@@ -10,9 +10,8 @@
     <div class="col-md-6">
       <div class="card weather-card shadow-lg text-center">
         <h1 class="text-center mt-4 px-5">Weather App</h1>
-        <app-input-component (getweather)="getWeather($event)" />
+        <app-input-component (getweather)="updateCity($event)" />
         <app-display-component
-          *ngIf="weatherData"
           [weatherData]="weatherData"
           (refresh)="refreshWeather()"
         />

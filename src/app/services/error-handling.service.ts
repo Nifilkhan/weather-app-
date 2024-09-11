@@ -9,6 +9,15 @@ export class ErrorHandlingService {
 
   constructor() { }
 
+
+  /**
+ * Handles HTTP errors and returns a user-friendly error message.
+ *
+ * This function inspects the HTTP status code of the error response and returns
+ * a relevant error message based on the status. If no specific message is defined
+ * for the error code, a default error message with the status and error message is returned.
+ */
+
   handleError(error:HttpErrorResponse){
     let errorMessage = '';
 

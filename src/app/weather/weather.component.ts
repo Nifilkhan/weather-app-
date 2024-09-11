@@ -20,7 +20,7 @@ import { WeatherInputComponentComponent } from './weather-input-component/weathe
   styleUrls: ['./weather.component.css'],
 })
 export class WeatherComponent implements OnInit {
-   cities: string[] = [
+  cities: string[] = [
     'New York',
     'London',
     'Paris',
@@ -40,7 +40,7 @@ export class WeatherComponent implements OnInit {
     'Rome',
     'Mexico City',
     'Cape Town',
-    'Beijing'
+    'Beijing',
   ];
   city: string = this.cities[Math.floor(Math.random() * this.cities.length)];
   weatherData: weatherModel | null = null;
@@ -51,13 +51,20 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.getWeather(this.city);
   }
+
+
+  /**
+ * Fetches weather data for the given city and updates the component state.
+ * 
+ * @param city - City name to fetch weather data for.
+ */
+
   getWeather(city: string) {
     this.isLoading = true;
     this.weatherService.getWeather(city).subscribe({
       next: (data) => {
         this.weatherData = data;
         this.isLoading = false;
-        console.log(data);
       },
       error: (err) => {
         this.isLoading = false;
@@ -66,6 +73,8 @@ export class WeatherComponent implements OnInit {
       },
     });
   }
+
+
   showErrorPopup(errorMessage: string) {
     Swal.fire({
       icon: 'error',
@@ -74,9 +83,15 @@ export class WeatherComponent implements OnInit {
       confirmButtonText: 'OK',
     });
   }
+
   refreshWeather() {
-    this.isLoading = true;
-    this.city = this.cities[Math.floor(Math.random() * this.cities.length)];
-    this.getWeather(this.city);
+    if (this.city) {
+      this.getWeather(this.city);
+    }
+  }
+
+  updateCity(city: string) {
+    this.city = city;
+    this.refreshWeather();
   }
 }

@@ -11,11 +11,18 @@ import { FormsModule } from '@angular/forms';
 export class WeatherInputComponentComponent {
   city: string = '';
 
+    /**
+   * Event emitter to notify parent component when the user searches for a city.
+   * Emits the current city name to the parent component.
+   */
+
   @Output() getweather = new EventEmitter<string>();
 
+  /**
+   * Method to emit the current city name when the user clicks the search button.
+   * This method is called when the search button is clicked.
+   */
   onGetWeather() {
-    if (this.city.trim()) {
       this.getweather.emit(this.city);
-    }
   }
 }

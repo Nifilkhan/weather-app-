@@ -14,6 +14,15 @@ export class WeatherServiceService {
 
   constructor(private http: HttpClient,private ErrorHandler:ErrorHandlingService) {}
 
+
+  /**
+ * Fetches weather data for a given city.
+ *
+ * @param {string} city - The city name.
+ * @returns {Observable<weatherModel>} - An observable with the weather data.
+ *
+ * Handles errors using the ErrorHandler service.
+ */
   getWeather(city: string) :Observable<weatherModel>{
     return this.http.get<weatherModel>(
       `${this.WeatherApi}?q=${city}&appid=${this.WeatherApiKey}&units=metric`
