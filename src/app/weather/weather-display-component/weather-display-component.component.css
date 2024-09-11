@@ -1,0 +1,29 @@
+/* .city-name,.temp,.humidity,.wind{
+    color: black !important;
+} */
+/* main card content*/
+.city-name {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000;
+}
+ .temp {
+    font-size: 50px;
+    font-weight: 400;
+    color: #000;
+}
+.humidity {
+    font-size: 20px;
+    font-weight: 400;
+}
+.wind {
+    font-weight: 400;
+}
+.humidity, .wind {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #000;
+}
+.descri p {
+    height: 50px;
+}

@@ -3,35 +3,80 @@ import { FormsModule } from '@angular/forms';
 import { WeatherServiceService } from '../services/weather-service.service';
 import { CommonModule } from '@angular/common';
 import { weatherModel } from '../model/weather.model';
+import Swal from 'sweetalert2';
+import { WeatherDisplayComponentComponent } from './weather-display-component/weather-display-component.component';
+import { WeatherInputComponentComponent } from './weather-input-component/weather-input-component.component';
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    WeatherDisplayComponentComponent,
+    WeatherInputComponentComponent,
+  ],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
 export class WeatherComponent implements OnInit {
-  city: string = 'trivandrum';
-  weatherData!: weatherModel;
-  isBoolean: boolean = false;
+   cities: string[] = [
+    'New York',
+    'London',
+    'Paris',
+    'Tokyo',
+    'Sydney',
+    'Dubai',
+    'Berlin',
+    'Singapore',
+    'Moscow',
+    'Toronto',
+    'Mumbai',
+    'Hong Kong',
+    'Cairo',
+    'Bangkok',
+    'Rio de Janeiro',
+    'Istanbul',
+    'Rome',
+    'Mexico City',
+    'Cape Town',
+    'Beijing'
+  ];
+  city: string = this.cities[Math.floor(Math.random() * this.cities.length)];
+  weatherData: weatherModel | null = null;
+  isLoading: boolean = true;
 
   constructor(private weatherService: WeatherServiceService) {}
 
   ngOnInit(): void {
     this.getWeather(this.city);
-    
   }
   getWeather(city: string) {
-    this.weatherService.getWeather(this.city).subscribe((data) => {
-      this.weatherData = data;
-      console.log(data);
+    this.isLoading = true;
+    this.weatherService.getWeather(city).subscribe({
+      next: (data) => {
+        this.weatherData = data;
+        this.isLoading = false;
+        console.log(data);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.weatherData = null;
+        this.showErrorPopup(err.message);
+      },
+    });
+  }
+  showErrorPopup(errorMessage: string) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error!',
+      text: errorMessage,
+      confirmButtonText: 'OK',
     });
   }
   refreshWeather() {
-    window.location.reload();
-  }
-  getRoundedTemp(temp: number): number {
-    return Math.round(temp); // Rounds the temperature to the nearest integer
+    this.isLoading = true;
+    this.city = this.cities[Math.floor(Math.random() * this.cities.length)];
+    this.getWeather(this.city);
   }
 }

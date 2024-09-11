@@ -1,0 +1,16 @@
+/* searching the city*/
+.input-group {
+    max-width: 100% !important;
+    gap: 10px;
+    justify-content: center;
+}
+
+.input-group input {
+    max-width: 300px !important;
+    max-height: 60px;
+    border-radius: 10px !important;
+}
+
+.input-group button {
+    border-radius: 10px !important;
+}

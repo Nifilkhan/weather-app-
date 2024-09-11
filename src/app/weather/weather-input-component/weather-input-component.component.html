@@ -1,0 +1,6 @@
+<div class="text-center input-group">
+    <input type="text" id="cityInput" class="form-control" name="cityName" placeholder="Enter city name" [(ngModel)]="city" (keyup.enter)="onGetWeather()">
+    <button class="btn btn-primary" id="getWeatherButton" (click)="onGetWeather()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
